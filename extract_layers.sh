@@ -37,5 +37,5 @@ do
 done
 
 # TODO count how many layers were succesfully extracted
-
+# TODO use layer's alpha level
 
