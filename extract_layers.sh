@@ -21,6 +21,10 @@ layers_count=`xcfinfo $filename | head -1 | cut -d',' -f3 | cut -d' ' -f2`
 # layers can NOT have spaces in the name
 layers_names=`xcfinfo $filename | cut -d' ' -f5 | tail -$(($layers_count-1))`
 
+# directory to put layers
+destdir='layers'
+mkdir $destdir 2>> /dev/null
+
 # extract layer by layer as a png using xcf2png
 for layer_name in $layers_names
 do
@@ -29,6 +33,7 @@ do
 	$command
 	if [ $? -eq 0 ]
 	then
+		mv $layer_name.png $destdir
 		echo "OK"
 	else 
 		echo "FAIL"
