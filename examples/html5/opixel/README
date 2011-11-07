@@ -1,0 +1,10 @@
+opixel.js small html5 engine
+
+it uses 2D canvas to draw the game scene. Alpha-stage.
+
+It has the world, layers, sprites, controllers and some other concepts. This 
+project have world, sprite and controllers in the early stages.
+
+see the live demo: http://sombriks-hq.appspot.com/opixel/index.html
+
+and keep an eye on the main github repo for updates.
