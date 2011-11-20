@@ -7,7 +7,7 @@ var op = new OpWorld({
 		w : 800,
 		h : 600
 	},
-	root : "layers",
+	root : "../../../layers",
 	ctx : ctx
 });
 op.addSprite(new Sprite({
