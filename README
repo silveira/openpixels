@@ -21,3 +21,6 @@ Exemple:
 
 After this execute the script extract_layers.sh to the xcf file.
 	./extract_layers open_chars.xcf
+
+
+--
