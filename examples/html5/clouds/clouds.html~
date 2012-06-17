@@ -1,0 +1,66 @@
+<!doctype html> 
+<html> 
+<head> 
+   <meta charset="UTF-8" /> 
+      <title>Canvas Test</title> 
+      </head> 
+      <body> 
+      <section> 
+ 
+      <div> 
+         <canvas id="cloud_demo_canvas" width="640" height="480">Sorry your browser don't support HTML5 Canvas :(</canvas> 
+         </div> 
+         <script type="text/javascript"> 
+		var canvas;
+		var ctx;
+
+		var background;
+		var width = 300;
+		var height = 200;
+
+		var cloud;
+		var cloud_x;
+
+		function init() {
+		    canvas = document.getElementById("cloud_demo_canvas");
+		    width = canvas.width;
+		    height = canvas.height;
+		    ctx = canvas.getContext("2d");
+
+		    // init background 
+		    background = new Image();
+		    background.src = 'forest.png';
+
+		    // init cloud
+		    cloud = new Image();
+		    cloud.src = 'cloud.png';
+		    cloud.onload = function () {
+			cloud_x = -cloud.width;
+		    };
+
+		    return setInterval(main_loop, 10);
+		}
+
+		function update() {
+		    cloud_x += 0.3;
+		    if (cloud_x > width) {
+			cloud_x = -cloud.width;
+		    }
+		}
+
+		function draw() {
+		    ctx.drawImage(background, 0, 0);
+		    ctx.drawImage(cloud, cloud_x, 0);
+		}
+
+		function main_loop() {
+		    draw();
+		    update();
+		}
+
+		init();
+         </script> 
+	</section> 
+
+	</body> 
+ </html> 
