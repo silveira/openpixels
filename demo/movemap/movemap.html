@@ -1,0 +1,101 @@
+<!doctype html> 
+<html> 
+<head> 
+   <meta charset="UTF-8" /> 
+      <title>Canvas Test</title> 
+      </head> 
+      <body> 
+      <section> 
+ 
+      <div> 
+         <canvas id="mycanvas" width="640" height="480">Sorry your browser don't support HTML5 Canvas :(</canvas> 
+         </div> 
+         <script type="text/javascript"> 
+		var canvas;
+		var ctx;
+
+		var background;
+		var width = 320;
+		var height = 240;
+
+		// keycodes
+		var KEYCODE_RIGHT = 37;
+		var KEYCODE_UP = 38;
+		var KEYCODE_LEFT = 39;
+		var KEYCODE_DOWN = 40;
+
+		var camera_x = 0;
+		var camera_y = 0;
+
+		var keyboard = new Array();
+
+		function keyboard_control(event) {
+			keyboard[KEYCODE_RIGHT]	= 0;
+			keyboard[KEYCODE_UP] = 0;
+			keyboard[KEYCODE_LEFT] = 0;
+			keyboard[KEYCODE_DOWN] = 0;
+
+			keyboard[event.keyCode] = 1;
+		}
+
+		function init() {
+			canvas = document.getElementById("mycanvas");
+			width = canvas.width;
+			height = canvas.height;
+			ctx = canvas.getContext("2d");
+
+			// init background 
+			background = new Image();
+			background.src = 'city.png';
+
+			// keyboard events
+			document.onkeydown = keyboard_control;
+
+			return setInterval(main_loop, 10);
+		}
+
+		function update() {
+			if(keyboard[KEYCODE_DOWN]){
+				if(camera_y+canvas.height+1<=background.height) {
+					camera_y++;
+				}
+			}
+
+			if(keyboard[KEYCODE_UP]){
+				if(camera_y-1 >= 0) {				
+					camera_y--;
+				}
+			}
+			if(keyboard[KEYCODE_LEFT]){
+				if(camera_x+canvas.width+1<=background.width) {
+					camera_x++;
+				}
+			}
+			if(keyboard[KEYCODE_RIGHT]){
+				if(camera_x-1>=0){
+					camera_x--;
+				}
+			}
+		}
+
+		function draw() {
+			ctx.drawImage(background, -camera_x, -camera_y);
+			ctx.fillStyle = "black";
+			ctx.font = "bold 16px Arial";
+			ctx.fillText("camera_x: " + camera_x, 100, 100);
+			ctx.fillText("camera_y: " + camera_y, 100, 116);
+		}
+
+		function main_loop() {
+		    draw();
+		    update();
+		}
+
+		// init graphics and call main loop
+		init();
+
+         </script> 
+	</section>
+	Use the arrow keys.<br/>Credits, details and sources: <a href="http://github.com/silveira/openpixels">Openpixels project</a>.
+	</body> 
+ </html> 
