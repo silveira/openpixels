@@ -68,6 +68,7 @@ def file_in_dir(paths, search_str):
 # Main Command Line
 parser = argparse.ArgumentParser(description='Generate character assets.')
 parser.add_argument("number", type=int, help="number of characters to generate")
+parser.add_argument("export", help="export directory", default="export/")
 
 # Optional Arguments
 parser.add_argument("-body", help="show body", default=True)
@@ -87,5 +88,5 @@ args = parser.parse_args()
 # Main
 for i in range(args.number):
 	char = generate(args.body, args.cloth, args.eye, args.hair, args.hat, args.acc, args.shadow, args.shoe)
-	char.save("export/export"+str(i)+".png", "PNG")
+	char.save(args.export+str(i)+".png", "PNG")
 	print("Saving '"+"export/export"+str(i)+".png"+"'")
