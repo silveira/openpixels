@@ -46,6 +46,7 @@ def generate(body = True, cloths = True, eyes = True, hair = True, hat = True, a
 	if shadow: layers.append( "layers/shadow.png" )
 	layers.append( file_in_dir(body_files, body) )
 	layers.append( file_in_dir(cloths_files, cloths) )
+	layers.append( "layers/eyeballs.png" )
 	layers.append( file_in_dir(eyes_files, eyes) )
 	layers.append( file_in_dir(hair_files, hair) )
 	layers.append( file_in_dir(cloths_files, hat) )
