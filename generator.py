@@ -30,4 +30,6 @@ for i in range(50):
 	layers.append( choice(dirFiles("layers/cloths")) )
 	layers.append( choice(dirFiles("layers/eyes")) )
 	layers.append( choice(dirFiles("layers/hair")) )
+	layers.append( choice(dirFiles("layers/hat")) )
+	layers.append( choice(dirFiles("layers/misc")) )
 	compose(layers).save("export/export"+str(i)+".png", "PNG")
