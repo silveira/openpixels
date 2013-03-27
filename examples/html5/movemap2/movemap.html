@@ -1,0 +1,126 @@
+<!doctype html> 
+<html> 
+<head> 
+   <meta charset="UTF-8" /> 
+      <title>Canvas Test</title> 
+      </head> 
+      <body> 
+      <section> 
+ 
+      <div> 
+         <canvas id="mycanvas" width="640" height="480">Sorry your browser don't support HTML5 Canvas :(</canvas> 
+         </div> 
+         <script type="text/javascript"> 
+		var canvas;
+		var ctx;
+		
+		
+		var background, warrior;
+		var width = 320;
+		var height = 240;
+
+		// keycodes
+		var KEYCODE_RIGHT = 37;
+		var KEYCODE_UP = 38;
+		var KEYCODE_LEFT = 39;
+		var KEYCODE_DOWN = 40;
+
+		var camera_x = 0;
+		var camera_y = 0;
+		
+		var warrior_x = width/2;
+		var warrior_y = height/2;
+
+		var keyboard = new Array();
+
+		function keyboard_control(event) {
+			keyboard[KEYCODE_RIGHT]	= 0;
+			keyboard[KEYCODE_UP] = 0;
+			keyboard[KEYCODE_LEFT] = 0;
+			keyboard[KEYCODE_DOWN] = 0;
+
+			keyboard[event.keyCode] = 1;
+		}
+
+		function init() {
+			canvas = document.getElementById("mycanvas");
+			width = canvas.width;
+			height = canvas.height;
+			warrior_x = width/2;
+			warrior_y = height/2;
+			ctx = canvas.getContext("2d");
+
+			// init background 
+			background = new Image();
+			background.src = 'kitchen.png';
+			
+			// init warrior
+			warrior = new Image();
+			warrior.src = 'warrior.png';
+
+			// keyboard events
+			document.onkeydown = keyboard_control;
+
+			return setInterval(main_loop, 10);
+		}
+
+		function update() {
+			if(keyboard[KEYCODE_DOWN]){
+				
+					//camera_y++;
+					warrior_y += 10;
+					keyboard[KEYCODE_DOWN]=0;
+				
+			}
+
+			if(keyboard[KEYCODE_UP]){
+				
+					//camera_y--;
+					warrior_y -= 10;
+					keyboard[KEYCODE_UP]=0;
+				
+			}
+			if(keyboard[KEYCODE_LEFT]){
+				
+					//camera_x++;
+					warrior_x += 10;
+					keyboard[KEYCODE_LEFT]=0;
+				
+			}
+			if(keyboard[KEYCODE_RIGHT]){
+				
+					//camera_x--;
+					warrior_x -= 10;
+					keyboard[KEYCODE_RIGHT]=0;
+				
+			}
+		}
+
+		function draw() {
+			ctx.fillStyle = "black";
+			ctx.fillRect(0,0, width, height);
+		
+			// ctx.drawImage(background, -camera_x, -camera_y);
+			
+			ctx.drawImage(warrior, warrior_x, warrior_y);
+//			1, 102, 32, 49, 0, 0, 32, 49);
+			
+			ctx.fillStyle = "black";
+			ctx.font = "bold 16px Arial";
+			ctx.fillText("camera_x: " + camera_x, 100, 100);
+			ctx.fillText("camera_y: " + camera_y, 100, 116);
+		}
+
+		function main_loop() {
+		    draw();
+		    update();
+		}
+
+		// init graphics and call main loop
+		init();
+
+         </script> 
+	</section>
+	Use the arrow keys.<br/>Credits, details and sources: <a href="http://github.com/silveira/openpixels">Openpixels project</a>.
+	</body> 
+ </html> 
