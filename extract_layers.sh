@@ -1,9 +1,13 @@
 #!/bin/sh
 
-# TODO check if xcfinfo and xcf2png exists
+# check requirements 
+require() {
+	command -v $1 > /dev/null 2> /dev/null && : || { echo "$1 not found"; exit 1; }
+}
+require xcfinfo
+require xcf2png
 
-# TODO put a -v --verbose option
-# check if we have the parameter
+# check if we have a FILE parameter
 if [ $# -ne 1 ]
 then
 	echo "Usage:"
