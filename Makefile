@@ -37,4 +37,7 @@ tv:
 vending_machine:
 	convert open_tileset.png -crop 31x60+0+162 things/$@.png 
 
-things: refrigerator stove kitchen_table sink_cabinet radio shelf_full shelf_empty tv vending_machine
+store_refrigerator:
+	convert open_tileset.png -crop 64x60+32+162 things/$@.png 
+
+things: refrigerator stove kitchen_table sink_cabinet radio shelf_full shelf_empty tv vending_machine store_refrigerator
