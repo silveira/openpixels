@@ -1,3 +1,5 @@
+![example](https://raw.githubusercontent.com/silveira/openpixels/master/examples/images/we_are_hiring.png "Example of use of OpenPixels tiles and characters")
+
 For more details http://silveiraneto.net/tag/pixelart
 
 # Getting OpenPixels
