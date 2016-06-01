@@ -6,7 +6,7 @@ For more details http://silveiraneto.net/tag/pixelart
 http://silveiraneto.net/2011/08/20/getting-openpixels/
 
 # Games using OpenPixels
-* Esc 4 Home by  [Zendrael](http://www.zendrael.com/games/esc4home)
+* Esc 4 Home by  [Zendrael](http://www.zendrael.com/)
  * [Chrome Web Store](https://chrome.google.com/webstore/detail/esc-4-home/ooomgapfmfbcdbodcamfhhmbpefpfibo)
  * [Firefox Marketplace](https://marketplace.firefox.com/app/esc-4-home/)
  * [Online in browser version](http://www.zendrael.com/games/esc4home/)
