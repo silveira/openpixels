@@ -11,6 +11,9 @@ http://silveiraneto.net/2011/08/20/getting-openpixels/
  * [Firefox Marketplace](https://marketplace.firefox.com/app/esc-4-home/)
  * [Online in browser version](http://www.zendrael.com/games/esc4home/)
 
+* Rec Center Tycoon
+ * [Rec Center Tycoon on Steam](https://store.steampowered.com/app/623700/Rec_Center_Tycoon/)
+
 # Layers
 On the open_chars.xcf file each layer should have a name like:
 TYPE_DESCRIPTION
