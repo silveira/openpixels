@@ -1,7 +1,8 @@
 all: extract_char_layers crop_tileset things
 
 extract_char_layers:
-	./extract_layers.sh open_chars.xcf
+	./extract_layers.py open_chars.xcf
+	mv [0-9][0-9][0-9]*.png layers/
 
 depends_imagemagick: ; @which convert > /dev/null
 
