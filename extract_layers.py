@@ -2,6 +2,15 @@
 
 from gimpformats.gimpXcfDocument import GimpDocument
 
+def get_clean_name(name: str) -> str: 
+    print(name)
+    # Split off the extension
+    without_extension = name.rsplit('.', 1)[0]
+    
+    # Split after the numeric prefix + underscore
+    return without_extension.split('_', 1)[1]
+
+
 def export_xcf_layers(xcf_path):
     """Export all layers from XCF file as PNG images"""
     
@@ -26,7 +35,7 @@ def export_xcf_layers(xcf_path):
                     if layer_image is not None:
                         # Get layer name
                         layer_name = getattr(layer_obj, 'name', f'layer_{i}')
-                        clean_name = str(layer_name).replace(' ', '_').replace('/', '_')
+                        clean_name = get_clean_name(str(layer_name))
 
                         filename = f"{i:03d}_{clean_name}.png"
                         

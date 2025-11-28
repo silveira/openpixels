@@ -4,6 +4,9 @@ extract_char_layers:
 	./extract_layers.py open_chars.xcf
 	mv [0-9][0-9][0-9]*.png layers/
 
+layers_sizes:
+	./layers_sizes.py
+
 depends_imagemagick: ; @which convert > /dev/null
 
 crop_tileset: depends_imagemagick things_dir
@@ -42,3 +45,6 @@ store_refrigerator:
 	convert open_tileset.png -crop 64x60+32+162 things/$@.png 
 
 things: refrigerator stove kitchen_table sink_cabinet radio shelf_full shelf_empty tv vending_machine store_refrigerator
+
+clean:
+	rm layers/*
